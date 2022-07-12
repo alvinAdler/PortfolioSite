@@ -1,0 +1,102 @@
+---
+const { pageTitle } = Astro.props
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+    <title>{pageTitle}</title>
+</head>
+
+<style lang="scss">
+    $hoverColors: (
+        "about-me": #2285E4,
+        "projects": #EB4034,
+        "tools": #17AD3A,
+
+        "github": var(--color-ops),
+
+        "linkedin": #0961B8,
+        "html": #D94924,
+        "css": #2760E5,
+        "bootstrap": #7610ED,
+        "js": #E4D04B,
+        "react": #5CCFEE,
+        "astro": #F15802,
+        "mui": #0179F2,
+        "node": #70A55E,
+        "mysql": #4F7B98,
+
+        "express": var(--color-ops),
+
+        "mongodb": #419341,
+        "git": #E34C2F,
+    );
+    :root{
+        --color-light: #FAFAFA;
+        --color-dark: #2B2B2B;
+        --color-slight: #F2F2F2;
+        --color-sdark: #1B1B1B;
+
+        --color-primary: var(--color-light);
+        --color-secondary: var(--color-slight);
+        --color-text: var(--color-dark);
+        --color-ops: var(--color-dark);
+
+        --color-about-me: #2285E4;
+        --color-projects: #EB4034;
+        --color-tools: #17AD3A;
+
+        --color-github: var(--color-ops);
+        --color-linkedin: #0961B8;
+        --color-html: #D94924;
+        --color-css: #2760E5;
+        --color-bootstrap: #7610ED;
+        --color-js: #E4D04B;
+        --color-react: #5CCFEE;
+        --color-astro: #F15802;
+        --color-mui: #0179F2;
+        --color-node: #70A55E;
+        --color-mysql: #4F7B98;
+        --color-express: var(--color-ops);
+        --color-mongodb: #419341;
+        --color-git: #E34C2F;
+    }
+
+    @each $colorName, $val in $hoverColors{
+        :global(.color-#{$colorName}:hover){
+            color: #{$val};
+            border-color: #{$val};
+        }
+    }
+
+    :global(*){
+        box-sizing: border-box;
+    }
+
+    html, body{
+        padding: 0;
+        margin: 0;
+    }
+
+    body{
+        background-color: var(--color-primary);
+    }
+
+    :global(h1, h2, h3 span, p, a){
+        color: var(--color-text);
+        font-family: "Signika", Arial, Helvetica, sans-serif;
+        margin: 0;
+    }
+</style>
+
+<body>
+    <slot/>
+</body>
+</html>
