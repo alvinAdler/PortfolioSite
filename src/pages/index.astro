@@ -3,7 +3,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import {Icon} from 'astro-icon'
 ---
 
-<style>
+<style lang="scss">
 	.main-header{
 		min-height: 100vh;
 		display: flex;
@@ -11,10 +11,10 @@ import {Icon} from 'astro-icon'
 		justify-content: center;
 		align-items: center;
 		row-gap: 5rem;
-	}
 
-	.main-header > h1{
-		text-align: center;
+		h1{
+			text-align: center;
+		}
 	}
 
 	.main-nav{
@@ -24,7 +24,6 @@ import {Icon} from 'astro-icon'
 		width: min(40rem, 80%);
 		align-items: stretch;
 		gap: 1.5rem 2rem;
-		/* border: 3px solid red; */
 	}
 
 	:global(.main-nav > a){
@@ -45,6 +44,74 @@ import {Icon} from 'astro-icon'
 		width: 2rem;
 		aspect-ratio: 1 / 1;
 	}
+
+	main{
+		width: min(70rem, 90%);
+		margin-inline: auto;
+		margin-bottom: 30rem;
+	}
+
+	h2{
+		color: var(--color-light);
+		clip-path: polygon(0 17%, 100% 0, 100% 83%, 0 100%);
+		padding: 1rem;
+	}
+
+	.about-me-section{
+		position: relative;
+		display: grid;
+		background-color: var(--color-slight);
+		border-radius: 5px;
+		box-shadow: 7px 7px 30px -10px var(--color-sdark);
+		padding: 1rem;
+		gap: 0.75rem;
+		grid-template-areas:
+		"self-pict self-title"
+		"self-pict self-desc"
+		"self-social self-social";
+
+		& > img{
+			grid-area: self-pict;
+			width: 20rem;
+			display: flex;
+			align-items: center;
+			aspect-ratio: 1 / 1;
+		}
+
+		& > h2{
+			background-color: var(--color-about-me);
+			grid-area: self-title;
+			width: max-content;
+			height: min-content;
+			margin-block: auto;
+		}
+
+		& > .about-me-desc{
+			grid-area: self-desc;
+			text-align: justify;
+		}
+
+		& > .social-info{
+			grid-area: self-social;
+			background-color: var(--color-about-me);
+			border-radius: 5px;
+			padding: 0.25rem 0.5rem;
+			display: flex;
+			flex-flow: row wrap;
+			gap: 0.5rem;
+			align-items: center;
+			margin-left: auto;
+
+			span, .social-icon{
+				color: var(--color-light);
+			}
+
+			.social-icon{
+				width: 2rem;
+				aspect-ratio: 1 / 1;
+			}
+		}
+	}
 </style>
 
 <BaseLayout pageTitle="Portfolio Site">
@@ -56,8 +123,27 @@ import {Icon} from 'astro-icon'
 			<a href="#" class="color-tools"><Icon name="mdi:tools" class="nav-icon"/>Tools</a>
 		</nav>
 	</header>
-	<main>
+	<main class="main-content">
+		<section class="about-me-section">
+			<img src="/images/selfPhoto.png" alt="Alvin">
+			<h2>About Me</h2>
+			<div class="about-me-desc">
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Enim pariatur, error excepturi unde saepe ratione ex voluptate placeat aut, tenetur sit? Quod natus cumque eius suscipit. Cumque aperiam iusto harum ut, illo officiis alias necessitatibus sit unde sequi ea nisi adipisci doloribus veritatis reprehenderit repellendus! Nam vitae ipsum ut voluptatem.</p>
 
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo molestiae praesentium enim obcaecati facilis commodi a nulla aperiam eligendi deserunt.</p>
+
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque, provident. Eius corrupti dolorem, officiis quia libero cupiditate ut beatae aliquid eum incidunt eveniet mollitia fugit odio sequi perferendis harum. Deserunt.</p>
+
+				<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Provident explicabo optio assumenda perferendis nesciunt eius recusandae commodi. Quia, odio numquam.</p>
+			</div>
+			<div class="social-info">
+				<span>Psst! Know me more here!</span>
+				<Icon name="mdi:linkedin" class="social-icon"/>
+				<Icon name="mdi:github" class="social-icon"/>
+			</div>
+		</section>
+		<section class="projects-section"></section>
+		<section class="tools-section"></section>
 	</main>
 	<footer></footer>
 </BaseLayout>

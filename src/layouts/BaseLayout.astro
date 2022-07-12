@@ -89,10 +89,15 @@ const { pageTitle } = Astro.props
         background-color: var(--color-primary);
     }
 
-    :global(h1, h2, h3 span, p, a){
+    :global(h1, h2, h3, span, p, a){
         color: var(--color-text);
         font-family: "Signika", Arial, Helvetica, sans-serif;
         margin: 0;
+    }
+
+    :global(p){
+        line-height: 1.5rem;
+        margin-bottom: 0.5rem;
     }
 </style>
 
