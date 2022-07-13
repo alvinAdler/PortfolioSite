@@ -7,4 +7,7 @@ export default defineConfig({
             external: ["svgo"],
         },
     },
+    server: {
+        host: true
+    }
 });

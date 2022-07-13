@@ -30,6 +30,7 @@ import projectsData from "../utilities/projectsData";
 	}
 
 	:global(.main-nav > a){
+		border-radius: 5px;
 		padding: 0.5rem;
 		border: 2px solid transparent;
 		display: flex;
@@ -68,7 +69,7 @@ import projectsData from "../utilities/projectsData";
 		display: grid;
 		background-color: var(--color-slight);
 		border-radius: 5px;
-		box-shadow: 4px 4px 30px -10px var(--color-sdark);
+		box-shadow: 5px 7px 15px -5px var(--color-sdark);
 		padding: 2rem;
 		gap: 0.75rem;
 		grid-template-areas:
@@ -133,6 +134,34 @@ import projectsData from "../utilities/projectsData";
 		}
 	}
 
+	.tools-section{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		
+		& > h2{
+			background-color: var(--color-tools);
+			margin-bottom: 5vw;
+		}
+
+		.icons-container{
+			align-self: stretch;
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			gap: 1.5rem;
+		}
+
+		.icons-container > a{
+			width: max(4rem, 8vw);
+			aspect-ratio: 1 / 1;
+		}
+
+		.icons-container .tools-icon{
+			transition: 100ms all ease-in-out;
+		}
+	}
+
 	@media only screen and (max-width: 700px){
 		.about-me-section{
 			grid-template-areas: 
@@ -192,7 +221,24 @@ import projectsData from "../utilities/projectsData";
 				</>
 			))}
 		</section>
-		<section class="tools-section"></section>
+		<section class="tools-section">
+			<h2>Tools</h2>
+			<div class="icons-container">
+				<a href="#"><Icon name="mdi:language-html5" class="tools-icon color-html"/></a>
+				<a href="#"><Icon name="mdi:language-css3" class="tools-icon color-css"/></a>
+				<a href="#"><Icon name="mdi:bootstrap" class="tools-icon color-bootstrap"/></a>
+				<a href="#"><Icon name="mdi:language-javascript" class="tools-icon color-js"/></a>
+				<a href="#"><Icon name="mdi:react" class="tools-icon color-react"/></a>
+				<a href="#"><Icon name="simple-icons:astro" class="tools-icon color-astro"/></a>
+				<a href="#"><Icon name="mdi:material-ui" class="tools-icon color-mui"/></a>
+				<a href="#"><Icon name="mdi:nodejs" class="tools-icon color-node"/></a>
+				<a href="#"><Icon name="cib:mysql" class="tools-icon color-mysql"/></a>
+				<a href="#"><Icon name="simple-icons:express" class="tools-icon color-express"/></a>
+				<a href="#"><Icon name="simple-icons:mongodb" class="tools-icon color-mongodb"/></a>
+				<a href="#"><Icon name="mdi:git" class="tools-icon color-git"/></a>
+				<a href="#"><Icon name="mdi:github" class="tools-icon color-github"/></a>
+			</div>
+		</section>
 	</main>
 	<footer></footer>
 </BaseLayout>
