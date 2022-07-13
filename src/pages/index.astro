@@ -162,6 +162,15 @@ import projectsData from "../utilities/projectsData";
 		}
 	}
 
+	footer{
+		height: 20vh;
+		padding: 2rem;
+		clip-path: polygon(0 17%, 100% 0, 100% 100%, 0% 100%);
+		background-color: var(--color-friend);
+		display: grid;
+		place-content: center start;
+	}
+
 	@media only screen and (max-width: 700px){
 		.about-me-section{
 			grid-template-areas: 
@@ -224,6 +233,7 @@ import projectsData from "../utilities/projectsData";
 		<section class="tools-section">
 			<h2>Tools</h2>
 			<div class="icons-container">
+				<!-- TODO: Move all of these data in a map later -->
 				<a href="#"><Icon name="mdi:language-html5" class="tools-icon color-html"/></a>
 				<a href="#"><Icon name="mdi:language-css3" class="tools-icon color-css"/></a>
 				<a href="#"><Icon name="mdi:bootstrap" class="tools-icon color-bootstrap"/></a>
@@ -240,5 +250,8 @@ import projectsData from "../utilities/projectsData";
 			</div>
 		</section>
 	</main>
-	<footer></footer>
+	<footer>
+		<p>Site powered by: Astro</p>
+		<p>&#169;Alvin Adler</p>
+	</footer>
 </BaseLayout>
