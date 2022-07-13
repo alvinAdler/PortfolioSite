@@ -1,0 +1,56 @@
+---
+const { projectAbb, projectTitle, projectDesc } = Astro.props
+---
+
+<style lang="scss">
+    .project-holder{
+        // border: 3px solid red;
+        display: grid;
+        gap: 1.5rem;
+        grid-template-areas: 
+        "project-abb project-title"
+        "project-abb project-desc";
+
+        .h3{
+            grid-area: project-title;
+        }
+
+        // Project Abbreviation
+        span{
+            grid-area: project-abb;
+            margin: auto;
+            width: 8rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+            aspect-ratio: 1 / 1;
+            border-radius: 50%;
+            border: 2px solid var(--color-ops);
+            display: grid;
+            place-items: center;
+        }
+
+        p{
+            grid-area: project-desc;
+            text-align: justify;
+        }
+    }
+
+    @media only screen and (max-width: 550px){
+        .project-holder{
+            grid-template-areas: 
+            "project-title"
+            "project-abb"
+            "project-desc";
+        }
+
+        h3{
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="project-holder">
+    <h3>{projectTitle}</h3>
+    <span>{projectAbb}</span>
+    <p>{projectDesc}</p>
+</div>

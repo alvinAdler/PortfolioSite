@@ -1,6 +1,9 @@
 ---
+import ProjectHolder from "../components/ProjectHolder.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import {Icon} from 'astro-icon'
+import {Icon} from 'astro-icon';
+
+import projectsData from "../utilities/projectsData";
 ---
 
 <style lang="scss">
@@ -47,6 +50,9 @@ import {Icon} from 'astro-icon'
 
 	main{
 		width: min(70rem, 90%);
+		display: flex;
+		flex-direction: column;
+		row-gap: 20vh;
 		margin-inline: auto;
 		margin-bottom: 30rem;
 	}
@@ -62,8 +68,8 @@ import {Icon} from 'astro-icon'
 		display: grid;
 		background-color: var(--color-slight);
 		border-radius: 5px;
-		box-shadow: 7px 7px 30px -10px var(--color-sdark);
-		padding: 1rem;
+		box-shadow: 4px 4px 30px -10px var(--color-sdark);
+		padding: 2rem;
 		gap: 0.75rem;
 		grid-template-areas:
 		"self-pict self-title"
@@ -73,8 +79,7 @@ import {Icon} from 'astro-icon'
 		& > img{
 			grid-area: self-pict;
 			width: 20rem;
-			display: flex;
-			align-items: center;
+			margin-block: auto;
 			aspect-ratio: 1 / 1;
 		}
 
@@ -112,6 +117,36 @@ import {Icon} from 'astro-icon'
 			}
 		}
 	}
+
+	.projects-section{
+		// border: 3px solid green;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		gap: 2rem;
+		padding: 1.5rem;
+
+		& > h2{
+			background-color: var(--color-projects);
+			margin-inline: auto;
+			margin-bottom: 2vh;
+		}
+	}
+
+	@media only screen and (max-width: 700px){
+		.about-me-section{
+			grid-template-areas: 
+			"self-title"
+			"self-pict"
+			"self-desc"
+			"self-social";
+			place-items: center;
+
+			& > img{
+				width: max(10rem, 70%);
+			}
+		}
+	}
 </style>
 
 <BaseLayout pageTitle="Portfolio Site">
@@ -138,11 +173,25 @@ import {Icon} from 'astro-icon'
 			</div>
 			<div class="social-info">
 				<span>Psst! Know me more here!</span>
-				<Icon name="mdi:linkedin" class="social-icon"/>
-				<Icon name="mdi:github" class="social-icon"/>
+				<div>
+					<Icon name="mdi:linkedin" class="social-icon"/>
+					<Icon name="mdi:github" class="social-icon"/>
+				</div>
 			</div>
 		</section>
-		<section class="projects-section"></section>
+		<section class="projects-section">
+			<h2>Projects</h2>
+			{projectsData.map((data) => (
+				<>
+				<ProjectHolder 
+				projectAbb={data.projectAbb}
+				projectTitle={data.projectTitle}
+				projectDesc={data.projectDesc}
+				/>
+				<hr class="custom-hr"/>
+				</>
+			))}
+		</section>
 		<section class="tools-section"></section>
 	</main>
 	<footer></footer>
