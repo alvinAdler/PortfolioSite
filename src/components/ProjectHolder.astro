@@ -57,7 +57,7 @@ const { projectAbb, projectTitle, projectDesc } = Astro.props
             padding: 0.5rem;
             font-size: 1rem;
             background-color: var(--color-projects);
-            color: var(--color-slight);
+            color: var(--color-light);
             border: none;
             border-radius: 5px;
         }
@@ -72,6 +72,10 @@ const { projectAbb, projectTitle, projectDesc } = Astro.props
         span{
             color: var(--color-projects);
             border-color: var(--color-projects);
+        }
+
+        h3{
+            color: var(--color-light);
         }
 
         h3::before{

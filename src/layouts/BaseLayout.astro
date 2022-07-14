@@ -44,7 +44,7 @@ const { pageTitle } = Astro.props
     :root{
         --color-light: #FAFAFA;
         --color-dark: #2B2B2B;
-        --color-slight: #D6D6D6;
+        --color-slight: #F2F2F2;
         --color-sdark: #1B1B1B;
 
         --color-primary: var(--color-light);
@@ -213,6 +213,21 @@ const { pageTitle } = Astro.props
     :global(.custom-hr){
         border-color: var(--color-ops);
         opacity: 0;
+    }
+
+    :global(::-webkit-scrollbar){
+        width: 0.5rem;
+    }
+
+    :global(::-webkit-scrollbar-thumb){
+        border-radius: 100vw;
+        background-color: var(--color-ops);
+    }
+
+    @supports (scrollbar-color: red blue){
+        *{
+            scrollbar-color: var(--color-ops) rgb(0, 0, 0, 0);
+        }
     }
 </style>
 
