@@ -38,6 +38,7 @@ const { pageTitle } = Astro.props
         "mongodb": #419341,
         "git": #E34C2F,
     );
+    
     :root{
         --color-light: #FAFAFA;
         --color-dark: #2B2B2B;
@@ -70,6 +71,16 @@ const { pageTitle } = Astro.props
         --color-git: #E34C2F;
     }
 
+    @media (prefers-color-scheme: dark){
+        :root{
+            --color-primary: var(--color-dark);
+            --color-secondary: var(--color-sdark);
+            --color-text: var(--color-light);
+            --color-ops: var(--color-light);
+            --color-friend: var(--color-sdark);
+        }
+    }
+
     @each $colorName, $val in $hoverColors{
         :global(.color-#{$colorName}:hover){
             color: #{$val};
@@ -97,7 +108,7 @@ const { pageTitle } = Astro.props
     }
 
     :global(p){
-        line-height: 1.5rem;
+        line-height: 2rem;
         margin-bottom: 0.5rem;
     }
 
