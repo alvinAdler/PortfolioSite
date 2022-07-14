@@ -221,14 +221,11 @@ import toolsData from "../utilities/toolsData";
 		<section class="projects-section" id="projects-section">
 			<h2>Projects</h2>
 			{projectsData.map((data) => (
-				<>
 				<ProjectHolder 
 				projectAbb={data.projectAbb}
 				projectTitle={data.projectTitle}
 				projectDesc={data.projectDesc}
 				/>
-				<hr class="custom-hr"/>
-				</>
 			))}
 		</section>
 		<section class="tools-section" id="tools-section">

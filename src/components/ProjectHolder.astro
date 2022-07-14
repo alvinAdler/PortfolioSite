@@ -4,15 +4,31 @@ const { projectAbb, projectTitle, projectDesc } = Astro.props
 
 <style lang="scss">
     .project-holder{
-        // border: 3px solid red;
         display: grid;
         gap: 1.5rem;
         grid-template-areas: 
         "project-abb project-title"
-        "project-abb project-desc";
+        "project-abb project-desc"
+        "project-abb project-read-more";
 
-        .h3{
+        h3{
             grid-area: project-title;
+            position: relative;
+            margin-right: auto;
+            padding: 0.5rem;
+            padding-left: 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        h3::before{
+            z-index: -1;
+            content: "";
+            width: 0;
+            height: 100%;
+            background-color: var(--color-projects);
+            position: absolute;
+            clip-path: polygon(0 17%, 100% 0, 100% 83%, 0 100%);
         }
 
         // Project Abbreviation
@@ -27,11 +43,57 @@ const { projectAbb, projectTitle, projectDesc } = Astro.props
             border: 2px solid var(--color-ops);
             display: grid;
             place-items: center;
+            transition: 150ms all ease-in-out;
         }
 
         p{
             grid-area: project-desc;
             text-align: justify;
+        }
+
+        button{
+            grid-area: project-read-more;
+            margin-right: auto;
+            padding: 0.5rem;
+            font-size: 1rem;
+            background-color: var(--color-projects);
+            color: var(--color-slight);
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:focus,
+        button:active{
+            outline-color: var(--color-ops);
+        }
+    }
+
+    .project-holder:hover{
+        span{
+            color: var(--color-projects);
+            border-color: var(--color-projects);
+        }
+
+        h3::before{
+            animation: 150ms to-100-percent forwards;
+        }
+
+        & + .projects-hr{
+            opacity: 1;
+            width: 100%;
+            animation: 150ms to-100-percent forwards;
+        }
+    }
+
+    @keyframes to-100-percent{
+        0%{
+            width: 0;
+            opacity: 0;
+        }
+
+        100%{
+            width: 100%;
+            opacity: 1;
         }
     }
 
@@ -40,11 +102,16 @@ const { projectAbb, projectTitle, projectDesc } = Astro.props
             grid-template-areas: 
             "project-title"
             "project-abb"
-            "project-desc";
-        }
+            "project-desc"
+            "project-read-more";
 
-        h3{
-            text-align: center;
+            h3{
+                margin-inline: auto;
+            }
+
+            button{
+                margin-inline: auto;
+            }
         }
     }
 </style>
@@ -53,4 +120,6 @@ const { projectAbb, projectTitle, projectDesc } = Astro.props
     <h3>{projectTitle}</h3>
     <span>{projectAbb}</span>
     <p>{projectDesc}</p>
+    <button>Read More</button>
 </div>
+<hr class="custom-hr projects-hr"/>
