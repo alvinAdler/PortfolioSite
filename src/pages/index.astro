@@ -4,6 +4,7 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 import {Icon} from 'astro-icon';
 
 import projectsData from "../utilities/projectsData";
+import toolsData from "../utilities/toolsData";
 ---
 
 <style lang="scss">
@@ -233,20 +234,11 @@ import projectsData from "../utilities/projectsData";
 		<section class="tools-section">
 			<h2>Tools</h2>
 			<div class="icons-container">
-				<!-- TODO: Move all of these data in a map later -->
-				<a href="#"><Icon name="mdi:language-html5" class="tools-icon color-html"/></a>
-				<a href="#"><Icon name="mdi:language-css3" class="tools-icon color-css"/></a>
-				<a href="#"><Icon name="mdi:bootstrap" class="tools-icon color-bootstrap"/></a>
-				<a href="#"><Icon name="mdi:language-javascript" class="tools-icon color-js"/></a>
-				<a href="#"><Icon name="mdi:react" class="tools-icon color-react"/></a>
-				<a href="#"><Icon name="simple-icons:astro" class="tools-icon color-astro"/></a>
-				<a href="#"><Icon name="mdi:material-ui" class="tools-icon color-mui"/></a>
-				<a href="#"><Icon name="mdi:nodejs" class="tools-icon color-node"/></a>
-				<a href="#"><Icon name="cib:mysql" class="tools-icon color-mysql"/></a>
-				<a href="#"><Icon name="simple-icons:express" class="tools-icon color-express"/></a>
-				<a href="#"><Icon name="simple-icons:mongodb" class="tools-icon color-mongodb"/></a>
-				<a href="#"><Icon name="mdi:git" class="tools-icon color-git"/></a>
-				<a href="#"><Icon name="mdi:github" class="tools-icon color-github"/></a>
+				{toolsData.map((tool) => (
+					<a href={tool.href}>
+						<Icon name={tool.iconifyName} class={`tools-icon ${tool.extraClass}`}/>
+					</a>
+				))}
 			</div>
 		</section>
 	</main>
