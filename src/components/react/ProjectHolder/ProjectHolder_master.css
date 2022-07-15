@@ -1,0 +1,113 @@
+.project-holder{
+    display: grid;
+    gap: 1.5rem;
+    grid-template-areas: 
+    "project-abb project-title"
+    "project-abb project-desc"
+    "project-abb project-read-more";
+}
+
+.project-holder > h3{
+    grid-area: project-title;
+    position: relative;
+    margin-right: auto;
+    padding: 0.5rem;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+}
+
+.project-holder > h3::before{
+    z-index: -1;
+    content: "";
+    width: 0;
+    height: 100%;
+    background-color: var(--color-projects);
+    position: absolute;
+    clip-path: polygon(0 17%, 100% 0, 100% 83%, 0 100%);
+}
+
+.project-holder > span{
+    grid-area: project-abb;
+    margin: auto;
+    width: 8rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    border: 2px solid var(--color-ops);
+    display: grid;
+    place-items: center;
+    transition: 150ms all ease-in-out;
+}
+
+.project-holder > p{
+    grid-area: project-desc;
+    text-align: justify;
+}
+
+.project-holder > button{
+    grid-area: project-read-more;
+    margin-right: auto;
+    padding: 0.5rem;
+    font-size: 1rem;
+    background-color: var(--color-projects);
+    color: var(--color-light);
+    border: none;
+    border-radius: 5px;
+}
+
+.project-holder > button:focus,
+.project-holder > button:active{
+    outline-color: var(--color-ops);
+}
+
+.project-holder:hover > span{
+    color: var(--color-projects);
+    border-color: var(--color-projects);
+}
+
+.project-holder:hover > h3{
+    color: var(--color-light);
+}
+
+.project-holder:hover > h3::before{
+    animation: 150ms to-100-percent forwards;
+}
+
+.project-holder:hover + .projects-hr{
+    opacity: 1;
+    width: 100%;
+    animation: 150ms to-100-percent forwards;
+}
+
+@keyframes to-100-percent{
+    0%{
+        width: 0;
+        opacity: 0;
+    }
+
+    100%{
+        width: 100%;
+        opacity: 1;
+    }
+}
+
+@media only screen and (max-width: 550px){
+    .project-holder{
+        grid-template-areas: 
+        "project-title"
+        "project-abb"
+        "project-desc"
+        "project-read-more";
+    }
+
+    .project-holder > h3{
+        margin-inline: auto;
+        text-align: center;
+    }
+
+    .project-holder > button{
+        margin-inline: auto;
+    }
+}

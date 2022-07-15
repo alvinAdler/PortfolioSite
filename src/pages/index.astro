@@ -1,9 +1,9 @@
 ---
-import ProjectHolder from "../components/ProjectHolder.astro";
-import BaseLayout from "../layouts/BaseLayout.astro";
 import {Icon} from 'astro-icon';
 
-import projectsData from "../utilities/projectsData";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Projects from '../components/react/Projects';
+
 import toolsData from "../utilities/toolsData";
 ---
 
@@ -216,13 +216,7 @@ import toolsData from "../utilities/toolsData";
 		</section>
 		<section class="projects-section" id="projects-section">
 			<h2>Projects</h2>
-			{projectsData.map((data) => (
-				<ProjectHolder 
-				projectAbb={data.projectAbb}
-				projectTitle={data.projectTitle}
-				projectDesc={data.projectDesc}
-				/>
-			))}
+			<Projects client:load/>
 		</section>
 		<section class="tools-section" id="tools-section">
 			<h2>Tools</h2>
