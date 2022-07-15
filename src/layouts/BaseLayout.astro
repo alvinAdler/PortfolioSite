@@ -12,6 +12,9 @@ const { pageTitle } = Astro.props
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
     <title>{pageTitle}</title>
+    <script>
+        import "./BaseScript.js"
+    </script>
 </head>
 
 <style lang="scss">
@@ -229,9 +232,33 @@ const { pageTitle } = Astro.props
             scrollbar-color: var(--color-ops) rgb(0, 0, 0, 0);
         }
     }
+
+    .scroll-to-top{
+        position: fixed;
+        bottom: 2vh;
+        right: 2vw;
+        padding: 0.5rem;
+        border-radius: 50%;
+        width: 3vw;
+        font-size: 1.2rem;
+        aspect-ratio: 1 / 1;
+        outline: none;
+        border: none;
+        background-color: var(--color-ops);
+        color: var(--color-primary);
+        visibility: hidden;
+        opacity: 0;
+        transition: 150ms opacity ease-in-out;
+    }
+
+    .active{
+        visibility: visible;
+        opacity: 1;
+    }
 </style>
 
 <body>
     <slot/>
+    <button class="scroll-to-top">&#8593</button>
 </body>
 </html>
