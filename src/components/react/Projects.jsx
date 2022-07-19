@@ -22,6 +22,7 @@ const Projects = () => {
 				projectAbb={project.projectAbb}
 				projectTitle={project.projectTitle} 
 				projectDesc={project.projectDesc}
+				isDetailsAvailable={project.isDetailsAvailable}
 				/>
 			))}
 			<Pagination

@@ -1,6 +1,8 @@
 .project-holder{
+    width: 100%;
     display: grid;
     gap: 1.5rem;
+    grid-template-columns: 10rem 1fr;
     grid-template-areas: 
     "project-abb project-title"
     "project-abb project-desc"
@@ -95,6 +97,7 @@
 
 @media only screen and (max-width: 550px){
     .project-holder{
+        grid-template-columns: 1fr;
         grid-template-areas: 
         "project-title"
         "project-abb"
