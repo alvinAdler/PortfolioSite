@@ -12,6 +12,12 @@ const toolsData = [
         href: "https://www.w3schools.com/css/"
     },
     {
+        name: "SASS",
+        iconifyName: "mdi:sass",
+        extraClass: "color-sass",
+        href: "https://sass-lang.com/"
+    },
+    {
         name: "Bootstrap",
         iconifyName: "mdi:bootstrap",
         extraClass: "color-bootstrap",
@@ -28,6 +34,12 @@ const toolsData = [
         iconifyName: "mdi:react",
         extraClass: "color-react",
         href: "https://reactjs.org/"
+    },
+    {
+        name: "Redux",
+        iconifyName: "simple-icons:redux",
+        extraClass: "color-redux",
+        href: "https://redux.js.org/"
     },
     {
         name: "Astro",
