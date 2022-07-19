@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
 import {v4 as uuid} from 'uuid'
-import { FaArrowLeft, FaArrowRight } from 'react-icons/fa'
 
 import './Pagination_master.css'
 
 import { generateArray } from '../../../utilities/utilityFunctions'
 
-const Pagination = ({paginator, itemsLength, maxNavDisplay=10}) => {
+const Pagination = ({paginator, itemsLength, maxNavDisplay=3}) => {
 
 	const [pageTransition, setPageTransition] = useState({
 		start: 0,
@@ -80,7 +79,7 @@ const Pagination = ({paginator, itemsLength, maxNavDisplay=10}) => {
 				<div className="pagination-container">
 					{Math.ceil(itemsLength / paginator.ITEMS_PER_PAGE) > maxNavDisplay &&
 						<button type="button" className="pagination-navigation" onClick={() => changePageTransition("LEFT")}>
-							<FaArrowLeft/>
+							&#8592;
 						</button>	
 					}
 					<ul className="pagination-list-wrapper">
@@ -95,7 +94,7 @@ const Pagination = ({paginator, itemsLength, maxNavDisplay=10}) => {
 					</ul>
 					{Math.ceil(itemsLength / paginator.ITEMS_PER_PAGE) > maxNavDisplay &&
 						<button type="button" className="pagination-navigation" onClick={() => changePageTransition("RIGHT")}>
-							<FaArrowRight/>
+							&#8594;
 						</button>
 					}
 				</div>

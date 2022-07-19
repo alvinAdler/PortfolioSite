@@ -1,5 +1,3 @@
-import { FaYoutube, FaGithub } from 'react-icons/fa'
-
 import "./ProjectHolder_master.css"
 
 const ProjectHolder = ({projectTitle, projectAbb, projectDesc, projectDetails}) => {
@@ -11,11 +9,11 @@ const ProjectHolder = ({projectTitle, projectAbb, projectDesc, projectDetails}) 
             <p>{projectDesc}</p>
             <div>
                 {projectDetails["youtube"] !== null && 
-                <a className="button-youtube" href={projectDetails["youtube"]}><FaYoutube/> Watch live demo</a>
+                <a className="button-youtube" href={projectDetails["youtube"]}> Watch live demo</a>
                 }
 
                 {projectDetails["github"] !== null &&
-                <a className="button-github" href={projectDetails["github"]}><FaGithub/> Source code</a>
+                <a className="button-github" href={projectDetails["github"]}> Source code</a>
                 }
             </div>
         </div>
