@@ -48,19 +48,38 @@
     text-align: justify;
 }
 
-.project-holder > button{
+.project-holder > div{
     grid-area: project-read-more;
     margin-right: auto;
+    display: flex;
+    flex-flow: row wrap;
+    gap: 1.5rem;
+}
+
+.project-holder a{
+    text-decoration: none;
     padding: 0.5rem;
     font-size: 1rem;
-    background-color: var(--color-projects);
     color: var(--color-light);
     border: none;
     border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
 }
 
-.project-holder > button:focus,
-.project-holder > button:active{
+.project-holder .button-youtube{
+    background-color: var(--color-youtube);
+}
+
+.project-holder .button-github{
+    background-color: var(--color-github);
+    color: var(--color-primary);
+}
+
+.project-holder a:focus,
+.project-holder a:active{
     outline-color: var(--color-ops);
 }
 
@@ -110,7 +129,8 @@
         text-align: center;
     }
 
-    .project-holder > button{
-        margin-inline: auto;
+    .project-holder > div{
+        width: 100%;
+        justify-content: center;
     }
 }
