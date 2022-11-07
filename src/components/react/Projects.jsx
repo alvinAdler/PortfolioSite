@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import ReCAPTCHA from 'react-google-recaptcha'
 
 import "./Projects_master.css"
 
@@ -15,10 +14,6 @@ const Projects = () => {
 
 	const projectsPaginator = usePagination(projects, 5)
 
-	const handleOnChange = (token) => {
-		console.log("Everything is ready")
-	}
-
 	return (
 		<div className="projects-list">
 			{projectsPaginator.paginatedItems.map((project, index) => (
@@ -33,10 +28,6 @@ const Projects = () => {
 			<Pagination
 			paginator={projectsPaginator}
 			itemsLength={projects.length}
-			/>
-			<ReCAPTCHA
-			sitekey={import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY}
-			onChange={handleOnChange}
 			/>
 		</div>
 	)
