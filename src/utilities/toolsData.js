@@ -18,6 +18,12 @@ const toolsData = [
         href: "https://sass-lang.com/"
     },
     {
+        name: "Tailwind",
+        iconifyName: "mdi:tailwind",
+        extraClass: "color-tailwind",
+        href: "https://tailwindcss.com/"
+    },
+    {
         name: "Bootstrap",
         iconifyName: "mdi:bootstrap",
         extraClass: "color-bootstrap",
@@ -28,6 +34,12 @@ const toolsData = [
         iconifyName: "mdi:language-javascript",
         extraClass: "color-js",
         href: "https://www.javascript.com/"
+    },
+    {
+        name: "TypeScript",
+        iconifyName: "mdi:language-typescript",
+        extraClass: "color-ts",
+        href: "https://www.typescriptlang.org/"
     },
     {
         name: "React",
