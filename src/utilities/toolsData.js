@@ -101,6 +101,12 @@ const toolsData = [
         extraClass: "color-github",
         href: "https://github.com/"
     },
+    {
+        name: "Redux Saga",
+        iconifyName: "simple-icons:reduxsaga",
+        extraClass: "color-redux-saga",
+        href: "https://redux-saga.js.org/"
+    }
 ]
 
 export default toolsData
